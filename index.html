@@ -1,61 +1,36 @@
-<script>
-    function getComputerChoice() {
-        const choices = ["Rock", "Paper", "Scissors"];
-        let randomIndex = Math.floor(Math.random() * choices.length);
-        return choices[randomIndex];
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">    
+        <div class="result-text">
+            <span id="text">Choose Your Weapon</span>
+        </div>
+   
+        <div class="weapon-btns">
+            <img src="/imgs/rock.png" alt="Rock" id="btn-rock">
+            <img src="/imgs/paper.png" alt="Paper" id="btn-paper">
+            <img src="imgs/scissors.png" alt="Scissors" id="btn-scissors">
+        </div>
+       <div class="media">
+        <a href="index.html" id="reset-btn">
+            Reset Game
+        </a>
 
-    function playRound(playerSelection, computerChoice) {
-        let playerSelectionLowerCase = playerSelection.toLowerCase();
-        let computerChoiceLowerCase = computerChoice.toLowerCase();
+        <div class="current-score">
+            <p>Player:<p> <p id="score-player">0</p>  <p>Computer:</p> <p id="score-computer">0</p>
+        </div>
+        </div>  
+    </div>    
+<script src="scripts.js"></script>
+</body>
 
-        if (playerSelectionLowerCase === "scissors" && computerChoiceLowerCase === "rock") {
-            return "lose";
-        } else if (playerSelectionLowerCase === "scissors" && computerChoiceLowerCase === "paper") {
-            return "win";
-        } else if (playerSelectionLowerCase === "paper" && computerChoiceLowerCase === "rock") {
-            return "win";
-        } else if (playerSelectionLowerCase === "paper" && computerChoiceLowerCase === "scissors") {
-            return "lose";
-        } else if (playerSelectionLowerCase === "rock" && computerChoiceLowerCase === "paper") {
-            return "lose";
-        } else if (playerSelectionLowerCase === "rock" && computerChoiceLowerCase === "scissors") {
-            return "win";
-        } else {
-            return "tie";
-        }
-    }
-
-    function playGame() {
-        let playerScore = 0;
-        let computerScore = 0;
-
-        for (let i = 0; i < 5; i++) {
-            let playerSelection = prompt("Enter your choice (Rock, Paper, or Scissors):");
-            let computerChoice = getComputerChoice();
-            let roundResult = playRound(playerSelection, computerChoice);
-
-            if (roundResult === "win") {
-                playerScore++;
-                console.log(`You win! You picked ${playerSelection[0].toUpperCase()}${playerSelection.slice(1)} and the Computer picked ${computerChoice}.`);
-            } else if (roundResult === "lose") {
-                computerScore++;
-                console.log(`You lose! You picked ${playerSelection} and the Computer picked ${computerChoice}.`);
-            } else {
-                console.log("It's a tie!")
-            }
-        }
-
-        if (playerScore > computerScore) {
-            console.log(`You win! The final Score is Player: ${playerScore} Computer: ${computerScore}!`);
-        } else {
-            console.log(`You lose! The final Score is Player: ${playerScore} Computer: ${computerScore}`);
-        }
-    }
-
-    playGame();
-</script>
-
+</html>
 
 
 
